@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>仪表盘</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="mt-5">用户列表</h2>
+      <ul class="list-group">
+        {% for user in users %}
+          <li class="list-group-item">{{ user.username }}</li>
+        {% endfor %}
+      </ul>
+      <ul class="list-group">
+        {% for user in users %}
+          <li class="list-group-item">{{ user }}</li>
+        {% endfor %}
+      </ul>
+      <a href="{{ url_for('logout') }}" class="btn btn-primary mt-3">注销</a>
+    </div>
+  </body>
+</html>
