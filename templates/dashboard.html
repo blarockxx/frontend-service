@@ -17,8 +17,22 @@
       <ul class="list-group">
         {% for user in users %}
           <li class="list-group-item">{{ user }}</li>
+          <li class="list-group-item">
+            <a href="{{ url_for('go_to_payment', user_id=user.id) }}" class="btn btn-primary mt-3">跳转到支付服务</a>
+          </li>
         {% endfor %}
       </ul>
+      <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
       <a href="{{ url_for('logout') }}" class="btn btn-primary mt-3">注销</a>
     </div>
   </body>
